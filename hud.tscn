@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://xmjned2qqjfs"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_owrlm"]
+[ext_resource type="FontFile" uid="uid://7mcfalm6f4b2" path="res://Xolonium-Regular.ttf" id="1_qj3xe"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5l781"]
+load_path = "res://.godot/imported/heart_full.png-fa9b82a3c03b559fc6e1c7b64d81e0d6.ctex"
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_owrlm")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 632.0
+offset_top = 579.0
+offset_right = 672.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qj3xe")
+theme_override_font_sizes/font_size = 64
+
+[node name="Heart1" type="Sprite2D" parent="."]
+position = Vector2(575, 731.5)
+texture = SubResource("CompressedTexture2D_5l781")
+
+[node name="Heart2" type="Sprite2D" parent="."]
+position = Vector2(655, 731.5)
+texture = SubResource("CompressedTexture2D_5l781")
+
+[node name="Heart3" type="Sprite2D" parent="."]
+position = Vector2(735, 731.5)
+texture = SubResource("CompressedTexture2D_5l781")

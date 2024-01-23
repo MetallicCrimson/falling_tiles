@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0uv68gojwk3a"]
+
+[ext_resource type="Script" path="res://enemy2.gd" id="1_wp7rv"]
+
+[node name="Enemy2" type="ColorRect"]
+offset_right = 90.0
+offset_bottom = 90.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_wp7rv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

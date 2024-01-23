@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://di2pjj1foslsq"]
+
+[ext_resource type="FontFile" uid="uid://7mcfalm6f4b2" path="res://Xolonium-Regular.ttf" id="1_2b88q"]
+[ext_resource type="Script" path="res://gameover_hud.gd" id="1_j4s8o"]
+[ext_resource type="Texture2D" uid="uid://cbj0vk2aqa1v4" path="res://help_icon.png" id="2_n65e5"]
+[ext_resource type="Texture2D" uid="uid://dxkb31fdus7w8" path="res://help_icon_hover.png" id="3_pk4le"]
+[ext_resource type="Texture2D" uid="uid://dxbslpfx47td5" path="res://about_icon.png" id="4_tikem"]
+[ext_resource type="Texture2D" uid="uid://bx06ar0uhvqf" path="res://about_icon_hover.png" id="5_e0ep5"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_q13o0"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_vov5b"]
+events = [SubResource("InputEventAction_q13o0")]
+
+[node name="GameoverHUD" type="CanvasLayer"]
+script = ExtResource("1_j4s8o")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 558.0
+offset_top = 884.0
+offset_right = 758.0
+offset_bottom = 984.0
+theme_override_fonts/font = ExtResource("1_2b88q")
+theme_override_font_sizes/font_size = 64
+shortcut = SubResource("Shortcut_vov5b")
+text = "Start"
+
+[node name="HelpButton" type="TextureButton" parent="."]
+offset_left = 638.0
+offset_top = 35.0
+offset_right = 689.0
+offset_bottom = 86.0
+texture_normal = ExtResource("2_n65e5")
+texture_hover = ExtResource("3_pk4le")
+
+[node name="AboutButton" type="TextureButton" parent="."]
+offset_left = 705.0
+offset_top = 35.0
+offset_right = 757.0
+offset_bottom = 87.0
+texture_normal = ExtResource("4_tikem")
+texture_hover = ExtResource("5_e0ep5")
+
+[node name="HelpText" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -241.0
+offset_right = 200.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
+metadata/_edit_group_ = true
+
+[node name="HelpLabel" type="RichTextLabel" parent="HelpText"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 18.0
+offset_right = 391.0
+offset_bottom = 466.0
+text = "Destroy the tiles, before they destroy you!
+
+Your task is to catch all the falling tiles by activating their column when they reach the white area.
+
+You can do that by pressing the key A, S, D, or F for column 1-4 respectively.
+
+If you miss one, or press a button when the white area is empty, you lose a life (and you gain invincibility for .5 seconds).
+
+The tiles are constantly getting faster.
+
+You can start the game with Enter, and pause/resume it with Space.
+
+Good luck!"
+
+[node name="AboutText" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -145.5
+offset_right = 196.5
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
+metadata/_edit_group_ = true
+
+[node name="AboutLabel" type="RichTextLabel" parent="AboutText"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 379.0
+offset_bottom = 288.0
+text = "This little game was developed by Daniel Kovacs, to practice using Godot (immediately after the official 2D tutorial).
+
+It was made in a few hours, with about 10 pages of documentation constantly open, and with me constantly wishing for a neverending cup of coffee.
+
+Github page:
+https://github.com/SilverCrimson"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="AboutButton" to="." method="_on_about_button_pressed"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfy4ydxqtq68u"]
+
+[ext_resource type="Script" path="res://paused_hud.gd" id="1_b35hy"]
+
+[node name="PausedHUD" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_b35hy")
